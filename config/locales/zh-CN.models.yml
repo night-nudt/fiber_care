@@ -1,0 +1,34 @@
+# Chinese (China) translations for models of project "fiber_care"
+# by night
+
+zh-CN:
+  activerecord:
+    models:
+      plan: "预案"
+      user: "用户"
+    attributes:
+      plan:
+        id: "记录编号"
+        serial_number: "预案编号"
+        name: "名称"
+        category: "类别"
+        factor: "要素"
+        symptom: "故障现象"
+        incidence: "影响范围"
+        situation: "故障位置"
+        disposal: "处置流程"
+        remark: "辅助信息"
+        created_at: "创建时间"
+        updated_at: "修改时间"
+
+      user:
+        id: "记录编号"
+        name: "用户名"
+        department: "单位"
+        password_salt: "口令乱数"
+        password_hash: "口令散列值"
+        remark: "备注"
+        created_by: "创建者"
+        updated_by: "修改者"
+        created_at: "创建时间"
+        updated_at: "修改时间"

@@ -1,0 +1,83 @@
+<h3>预案详情</h3>
+
+<table class="table">
+  <tr class="success">
+    <td>
+      <kbd>要素:</kbd>
+      <%= @plan.factor %>
+      <%= '一局一处一科' if @plan.factor.nil? or @plan.factor.empty? %>
+    </td>
+    <td>
+      <kbd>类别:</kbd>
+      <%= @plan.category %>
+      <%= '设备类通信设备类' if @plan.category.nil? or @plan.category.empty? %>
+    </td>
+    <td>
+      <kbd>名称:</kbd>
+      <%= @plan.name %>
+      <%= '一号设备一号子架9槽位XX板故障' if @plan.name.nil? or @plan.name.empty? %>
+    </td>
+    <td>
+      <kbd>编号:</kbd>
+      <%= @plan.serial_number %>
+      <%= '01T3Y01Y0101030109' if @plan.serial_number.nil? or @plan.serial_number.empty? %>
+    </td>
+  </tr>
+</table>
+
+<div id="tabset">
+  <ul class="nav nav-tabs">
+    <li class="active"><%= link_to '故障现象', '#symptom', 'data-toggle' => 'tab' %></li>
+    <li><%= link_to '影响范围', '#incidence', 'data-toggle' => 'tab' %></li>
+    <li><%= link_to '故障位置', '#situation', 'data-toggle' => 'tab' %></li>
+    <li><%= link_to '处置流程', '#disposal', 'data-toggle' => 'tab' %></li>
+    <li><%= link_to '辅助信息', '#remark', 'data-toggle' => 'tab' %></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="symptom" class="tab-pane fade in active">
+      <h4>故障现象</h4>
+
+      <p>
+        <%= @plan.symptom %>
+        <% if @plan.symptom.nil? or @plan.symptom.empty? %>
+          <ol>
+            <li>用户申告业务（XX系统XX至XX业务全部中断）</li>
+            <li>网管上报XX网元脱管、XX设备XX槽位XX板报R-LOS</li>
+            <li>该单板指示灯熄灭、XX设备XX槽位XX板报紧急告警</li>
+            <li>XX网管上X个端口上报XX告警</li>
+          </ol>
+         <% end %>
+      </p>
+    </div>
+    <div id="incidence" class="tab-pane fade">
+      <h4>影响范围</h4>
+
+      <p>
+        <%= @plan.incidence %>
+      </p>
+    </div>
+    <div id="situation" class="tab-pane fade">
+      <h4>故障位置</h4>
+
+      <p><%= @plan.situation %></p>
+    </div>
+    <div id="disposal" class="tab-pane fade">
+      <h4>处置流程</h4>
+
+      <p><%= @plan.disposal %></p>
+    </div>
+    <div id="remark" class="tab-pane fade">
+      <h4>辅助信息</h4>
+
+      <p><%= @plan.remark %></p>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div class="btn-group">
+  <%= link_to '修改预案', edit_plan_path(@plan), class: 'btn btn-default' %>
+  <%= link_to '返回预案列表', plans_path, class: 'btn btn-default' %>
+</div>

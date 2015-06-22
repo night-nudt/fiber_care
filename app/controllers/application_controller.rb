@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   
   def authorize
     if session[:user_id].nil?
-      session[:original_uri] = request.request.uri
+      session[:original_uri] = request.original_url
       flash[:notice] = '请登录'
       redirect_to :login
     end

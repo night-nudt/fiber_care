@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  serial_number: MyString
+  name: MyString
+  category: MyString
+  factor: MyString
+  symptom: MyText
+  incidence: MyText
+  situation: MyText
+  disposal: MyText
+  remark: MyText
+
+two:
+  serial_number: MyString
+  name: MyString
+  category: MyString
+  factor: MyString
+  symptom: MyText
+  incidence: MyText
+  situation: MyText
+  disposal: MyText
+  remark: MyText

@@ -1,0 +1,45 @@
+<h3>预案列表</h3>
+
+<hr>
+
+<table>
+  <thead>
+  <tr>
+    <td><%= Plan.human_attribute_name 'serial_number' %></td>
+    <td><%= Plan.human_attribute_name 'name' %></td>
+    <td><%= Plan.human_attribute_name 'category' %></td>
+    <td><%= Plan.human_attribute_name 'factor' %></td>
+    <td><%= Plan.human_attribute_name 'symptom' %></td>
+    <td><%= Plan.human_attribute_name 'incidence' %></td>
+    <td><%= Plan.human_attribute_name 'situation' %></td>
+    <td><%= Plan.human_attribute_name 'disposal' %></td>
+    <td><%= Plan.human_attribute_name 'remark' %></td>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @plans.each do |plan| %>
+      <tr>
+        <td><%= plan.serial_number %></td>
+        <td><%= plan.name %></td>
+        <td><%= plan.category %></td>
+        <td><%= plan.factor %></td>
+        <td><%= plan.symptom %></td>
+        <td><%= plan.incidence %></td>
+        <td><%= plan.situation %></td>
+        <td><%= plan.disposal %></td>
+        <td><%= plan.remark %></td>
+        <td><%= link_to '详情', plan, class: 'btn btn-primary btn-xs' %></td>
+        <td><%= link_to '修改', edit_plan_path(plan), class: 'btn btn-info btn-xs' %></td>
+        <td><%= link_to '删除', plan, method: :delete, data: {confirm: '确定要删除该预案吗？'}, class: 'btn btn-danger btn-xs' %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to new_plan_path, class: 'btn btn-success' do %>
+    <i class="glyphicon glyphicon-plus"></i> 新增预案
+<% end %>

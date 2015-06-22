@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  root 'users#index'
+  resources :plans
+
+  root 'plans#index'
+  
   get 'login' => 'users#login', as: :login
   post 'login' => 'users#login'
   post 'logout' => 'users#logout'
