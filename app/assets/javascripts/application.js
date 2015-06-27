@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require jhfrench/bootstrap-tree/bootstrap-tree
 //= require_tree .

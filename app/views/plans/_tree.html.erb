@@ -1,0 +1,37 @@
+<div class="tree">
+  <ul>
+    <% @tree.each do |ju| %>
+        <li>
+          <% badge = case ju[:branches].length; when 0 then 'important'; when 1 then 'warning'; else 'success'; end %>
+          <span class="badge badge-<%= badge %>"><i class="icon-minus-sign"></i> <%= ju[:node] %></span>
+          <ul>
+            <% ju[:branches].each do |chu| %>
+                <li>
+                  <% badge = case chu[:branches].length; when 0 then 'important'; when 1 then 'warning'; else 'success'; end %>
+                  <span class="badge badge-<%= badge %>"><i class="icon-minus-sign"></i> <%= chu[:node] %></span>
+                  <ul>
+                    <% chu[:branches].each do |ke| %>
+                        <li>
+                          <% badge = case ke[:branches].length; when 0 then 'important'; when 1 then 'warning'; else 'success'; end %>
+                          <span class="badge badge-<%= badge %>"><i class="icon-minus-sign"></i> <%= ke[:node] %></span>
+                          <ul>
+                            <% ke[:branches].each do |yuan| %>
+                                <li>
+                                  <span><i class="icon-file"></i> <%= yuan[:node] %></span> &ndash; <%= yuan[:serial_number] %>
+                                  <b style="margin-left:20px;">&nbsp;</b>
+                                  <%= link_to '详情', URI.escape("/plans/1?factor=#{ju[:node]}#{chu[:node]}#{ke[:node]}&serial_number=#{yuan[:serial_number]}"), class: 'btn btn-primary btn-xs' %>
+                                  <%= link_to '修改', '/plans/1/edit', class: 'btn btn-info btn-xs' %>
+                                  <%= link_to '删除', '/plans/1', method: :delete, data: {confirm: "确定要删除预案“#{ yuan[:serial_number] }”吗？"}, class: 'btn btn-danger btn-xs' %>
+                                </li>
+                            <% end %>
+                          </ul>
+                        </li>
+                    <% end %>
+                  </ul>
+                </li>
+            <% end %>
+          </ul>
+        </li>
+    <% end %>
+  </ul>
+</div>

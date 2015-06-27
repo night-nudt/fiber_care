@@ -4,8 +4,8 @@
   <tr class="success">
     <td>
       <kbd>要素:</kbd>
-      <%= @plan.factor %>
-      <%= '一局一处一科' if @plan.factor.nil? or @plan.factor.empty? %>
+      <%= factor = params[:factor] %>
+      <%= '一局一处一科' if factor.nil? or factor.empty? %>
     </td>
     <td>
       <kbd>类别:</kbd>
@@ -19,8 +19,8 @@
     </td>
     <td>
       <kbd>编号:</kbd>
-      <%= @plan.serial_number %>
-      <%= '01T3Y01Y0101030109' if @plan.serial_number.nil? or @plan.serial_number.empty? %>
+      <%= serial_number = params[:serial_number] %>
+      <%= '01T3Y01Y0101030109' if serial_number.nil? or serial_number.empty? %>
     </td>
   </tr>
 </table>
@@ -55,6 +55,20 @@
 
       <p>
         <%= @plan.incidence %>
+        <% if @plan.incidence.nil? or @plan.incidence.empty? %>
+          <div class="panel panel-info">
+            <div class="panel-heading"><h5 class="panel-heading">影响电路情况</h5></div>
+            <div class="panel-body">影响XX设备XX站至XX站等XX方向共XX个2M</div>
+          </div>
+          <div class="panel panel-warning">
+            <div class="panel-heading"><h5 class="panel-heading">影响重要电路</h5></div>
+            <div class="panel-body">影响重要电路XX条</div>
+          </div>
+          <div class="panel panel-danger">
+            <div class="panel-heading"><h5 class="panel-heading">涉及重要业务</h5></div>
+            <div class="panel-body">XX方向业务</div>
+          </div>
+        <% end %>
       </p>
     </div>
     <div id="situation" class="tab-pane fade">

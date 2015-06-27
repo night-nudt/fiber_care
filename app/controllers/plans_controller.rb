@@ -6,6 +6,8 @@ class PlansController < ApplicationController
   # GET /plans.json
   def index
     @plans = Plan.all
+    Plan.create if @plans.empty?
+    @tree = TREE
   end
 
   # GET /plans/1

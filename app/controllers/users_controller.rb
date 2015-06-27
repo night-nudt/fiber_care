@@ -61,14 +61,14 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
+
   def login
     session[:user_id] = nil
-    
+
     if request.post?
       if params[:username] == 'admin' and params[:password] == 'fibercare'
         session[:user_id] = request.remote_ip
-        
+
         if session[:original_uri]
           redirect_to session[:original_uri]
         else
@@ -79,7 +79,7 @@ class UsersController < ApplicationController
       end
     end
   end
-  
+
   def logout
     flash[:notice] = '已退出登录'
     session[:user_id] = nil
@@ -87,13 +87,13 @@ class UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    @user = User.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def user_params
-      params.require(:user).permit(:name, :department, :password_salt, :password_hash, :remark, :created_by, :updated_by)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def user_params
+    params.require(:user).permit(:name, :department, :password_salt, :password_hash, :remark, :created_by, :updated_by)
+  end
 end

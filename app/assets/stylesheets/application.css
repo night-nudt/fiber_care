@@ -12,4 +12,6 @@
  *
  *= require_tree .
  *= require_self
+ *
+ *= require jhfrench/bootstrap-tree/bootstrap-combined.min
  */
